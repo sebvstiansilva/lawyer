@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const pageTitle = "Política de Privacidad - Dr. [Nombre]";
+const pageDescription = "Política de privacidad y protección de datos personales conforme a la Ley 19.628 de Chile.";
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <Header slot="header" />
+
+  <main>
+    <section class="bg-surface py-20">
+      <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="font-headline text-4xl text-on-background mb-8">
+          Política de <span class="text-secondary">Privacidad</span>
+        </h1>
+
+        <div class="space-y-8 text-on-surface-variant leading-relaxed">
+          <div>
+            <h2 class="font-headline text-2xl text-on-background mb-4">Responsable del Tratamiento</h2>
+            <p>
+              El abogado [Nombre Apellido], con domicilio en [Dirección], Santiago, Chile,
+              es el responsable del tratamiento de los datos personales proporcionados
+              por los usuarios de este sitio web.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="font-headline text-2xl text-on-background mb-4">Finalidad del Tratamiento</h2>
+            <p>
+              Los datos personales recopilados a través de este sitio web serán utilizados
+              únicamente para:
+            </p>
+            <ul class="list-disc pl-6 mt-4 space-y-2">
+              <li>Gestionar consultas y solicitudes de contacto</li>
+              <li>Proporcionar información sobre servicios legales</li>
+              <li>Coordinar reuniones y consultas legales</li>
+              <li>Cumplir con obligaciones legales y réglementarias</li>
+            </ul>
+          </div>
+
+          <div>
+            <h2 class="font-headline text-2xl text-on-background mb-4">Derechos del Titular</h2>
+            <p>
+              Conforme a la Ley 19.628 sobre Protección de Datos de Carácter Personal,
+              usted tiene derecho a:
+            </p>
+            <ul class="list-disc pl-6 mt-4 space-y-2">
+              <li>Acceso a sus datos personales</li>
+              <li>Rectificación de datos inexactos</li>
+              <li>Cancelación de sus datos cuando lo solicite</li>
+              <li>Oposición al tratamiento de sus datos</li>
+            </ul>
+          </div>
+
+          <div>
+            <h2 class="font-headline text-2xl text-on-background mb-4">Contacto</h2>
+            <p>
+              Para ejercer sus derechos o cualquier consulta sobre esta política de privacidad,
+              puede contactarnos a través de:
+            </p>
+            <ul class="list-disc pl-6 mt-4 space-y-2">
+              <li>Email: [contacto@abogadolaboral.cl]</li>
+              <li>Teléfono: [+56 9 8765 4321]</li>
+              <li>Dirección: [Dirección], Santiago</li>
+            </ul>
+          </div>
+
+          <div class="text-sm mt-12 text-on-surface-variant">
+            <p>Última actualización: 2025-01-16</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer slot="footer" />
+</BaseLayout>

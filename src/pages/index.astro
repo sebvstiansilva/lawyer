@@ -1,0 +1,440 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const pageTitle = "Patricio Rodriguez - Abogado Laboral Chileno";
+const pageDescription = "Abogado laboral en Santiago, Chile. Expertise en despido injustificado, acoso laboral y derechos laborales.";
+
+// Practice Areas data - expanded with details from AreasDetail.astro
+const practiceAreas = [
+  {
+    title: "Despido Injustificado",
+    description: "Defensa de trabajadores ante despidos sin causa justa. Reclamación de indemnizaciones por años de servicio.",
+    details: ["Demanda por despido injustificado", "Indemnización por años de servicio", "Reclamación de虫害 notice", "Daños y perjuicios"]
+  },
+  {
+    title: "Acoso Laboral",
+    description: "Representación en casos de hostigamiento, discriminación y ambiente laboral hostil.",
+    details: ["Denuncia por acoso laboral", "Acción de protección", "Gestión ante Inspector del Trabajo", "Mediación laboral"]
+  },
+  {
+    title: "Negociación Colectiva",
+    description: "Asesoría en negociación con sindicatos y empresas. Redacción de instrumentos colectivos.",
+    details: ["Elaboración de convenios colectivos", "Negociación con sindicatos", "Defensa de derechos laborales", "Interpretación de cláusulas"]
+  },
+  {
+    title: "Contratos de Trabajo",
+    description: "Redacción, revisión y negociación de contratos laborales. Asesoría en modalidades contractuales.",
+    details: ["Contratos a plazo fijo", "Contratos indefinidos", "Modificación de cláusulas", "Finiquito y término"]
+  },
+  {
+    title: "Derechos Laborales",
+    description: "Protección de derechos fundamentales laborales. Reclamación de horas extra y descansos.",
+    details: ["Reclamación de horas extra", "Descansos y permisos", "Derecho a negociación", "Protección frente a vulneraciones"]
+  },
+  {
+    title: "Representación ante Tribunales",
+    description: "Representación legal ante Juzgados de Letras del Trabajo, Cortes y Corte Suprema.",
+    details: ["Juicios laborales", "Recursos de nulidad", "Apelaciones", "Casación laboral"]
+  },
+];
+
+// Credentials - from About.astro
+const credentials = [
+  "Licenciado en Ciencias Jurídicas, Universidad de Chile",
+  "Especialista en Derecho del Trabajo y Previsión Social",
+  "Más de 15 años de experiencia en litigación laboral",
+  "Miembro del Colegio de Abogados de Chile"
+];
+
+// Testimonials - from Testimonios.astro
+const testimonials = [
+  {
+    quote: "Dr. Rodriguez me representó en un caso de despido injustificado. Su profesionalismo y dedicación hicieron toda la diferencia. Recibí una indemnización justa después de un proceso largo.",
+    client: "María G.",
+    caseType: "Despido Injustificado"
+  },
+  {
+    quote: "Cuando enfrenté acoso laboral, él fue la única persona que me escuchó realmente. Ganamos el caso y la empresa tuvo que pagar una compensación por daño moral. Eternamente agradecida.",
+    client: "Carlos R.",
+    caseType: "Acoso Laboral"
+  },
+  {
+    quote: "Mi empresa necesitaba ayuda con negociación colectiva. Su conocimiento en derecho sindical fue invaluable. Los resultados superaron nuestras expectativas.",
+    client: "Roberto V.",
+    caseType: "Negociación Colectiva"
+  }
+];
+
+// Cases/Portfolio - from Portfolio.astro
+const cases = [
+  {
+    title: "Demanda por Despido Injustificado",
+    area: "Derecho del Trabajo",
+    description: "Trabajador despedido sin causa justificada después de 10 años de servicio. La empresa argumentó motivos económicos pero no pudo demostrarlo.",
+    outcome: "Indemnización completa por años de servicio + daños y perjuicios.",
+    year: "2024"
+  },
+  {
+    title: "Acoso Laboral en Empresa Retail",
+    area: "Derecho del Trabajo",
+    description: "Supervisora implementó hostigamiento sistemático contra empleada. Acumulamos evidencia de 6 meses de comportamientos hostiles.",
+    outcome: "Demanda acreditada. Empresa multada e indemnización por daño moral.",
+    year: "2024"
+  },
+  {
+    title: "Negociación Colectiva Franquicia",
+    area: "Negociación Colectiva",
+    description: "Sindicato de trabajadores de franquicia de supermercado negociando mejores condiciones. Logramos aumento salarial del 8% y mejores beneficios.",
+    outcome: "Convenio colectivo firmado con mejoras significativas.",
+    year: "2023"
+  },
+  {
+    title: "Reclamación de Horas Extra",
+    area: "Derecho Laboral",
+    description: "Ejecutivos de empresa tecnológica demandaron reconocimiento de 200+ horas extra no pagadas durante 2 años.",
+    outcome: "Pago de todas las horas extra + intereses legales.",
+    year: "2023"
+  }
+];
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <Header slot="header" />
+
+  <main>
+    <!-- Hero Section -->
+    <section class="relative bg-primary py-20 lg:py-32 overflow-hidden">
+      <!-- Subtle background pattern -->
+      <div class="absolute inset-0 opacity-5">
+        <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=&quot;60&quot; height=&quot;60&quot; viewBox=&quot;0 0 60 60&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cg fill=&quot;none&quot; fill-rule=&quot;evenodd&quot;%3E%3Cg fill=&quot;%23ffffff&quot; fill-opacity=&quot;1&quot;%3E%3Cpath d=&quot;M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z&quot;/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+      </div>
+      
+      <div class="relative max-w-container mx-auto px-4 md:px-6 lg:px-8">
+        <!-- Hero content with page load animation -->
+        <div class="hero-content max-w-3xl">
+          <p class="font-body text-label-lg text-secondary uppercase tracking-widest mb-4 opacity-0 animate-[fadeInUp_400ms_ease-out_100ms_forwards]">
+            Derecho Laboral Chileno
+          </p>
+          <h1 class="font-headline text-display-lg-mobile md:text-display-lg text-white leading-tight mb-6 opacity-0 animate-[fadeInUp_400ms_ease-out_200ms_forwards]">
+            Expertise en<br />
+            <span class="text-secondary">Derecho Laboral</span>
+          </h1>
+          <p class="font-body text-body-lg text-white/80 max-w-2xl mb-10 leading-relaxed opacity-0 animate-[fadeInUp_400ms_ease-out_300ms_forwards]">
+            Representación legal efectiva para trabajadores y empresas en todas las instancias del derecho laboral chileno. Su estabilidad laboral, mi compromiso profesional.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 opacity-0 animate-[fadeInUp_400ms_ease-out_400ms_forwards]">
+            <a 
+              href="#contacto" 
+              class="btn-animate inline-flex items-center justify-center bg-secondary hover:bg-secondary/90 text-white font-body font-semibold px-8 py-3.5 rounded-md transition-all duration-200"
+            >
+              Agenda tu consulta
+            </a>
+            <a 
+              href="#areas" 
+              class="btn-animate inline-flex items-center justify-center border border-outline text-white/80 hover:text-white hover:border-white/40 font-body px-8 py-3.5 rounded-md transition-all duration-200"
+            >
+              Ver áreas de práctica
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Practice Areas Section -->
+    <section id="areas" class="bg-surface py-16 md:py-20 lg:py-24">
+      <div class="max-w-container mx-auto px-4 md:px-6 lg:px-8">
+        <div class="text-center mb-12 md:mb-16">
+          <p class="font-body text-label-lg text-secondary uppercase tracking-widest mb-3">
+            Especialización
+          </p>
+          <h2 class="font-headline text-headline-lg md:text-display-lg-mobile text-primary">
+            Áreas de <span class="text-secondary">Práctica</span>
+          </h2>
+          <p class="font-body text-body-md text-on-surface-variant max-w-xl mx-auto mt-4">
+            Cobertura integral en todas las materias del derecho laboral chileno, desde negociación colectiva hasta representación ante tribunales superiores.
+          </p>
+        </div>
+
+        <!-- Cards with staggered fade-in animation -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
+          {practiceAreas.map((area, index) => (
+            <article class="group card-animate relative bg-surface-container-lowest border border-outline hover:border-secondary/50 p-6 md:p-8 rounded-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-card-hover">
+              <!-- Gold accent strip on left -->
+              <div class="absolute left-0 top-0 bottom-0 w-0.5 bg-secondary transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom"></div>
+              
+              <span class="font-body text-label-sm text-secondary block mb-3">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+              <h3 class="font-headline text-headline-md text-primary mb-3">
+                {area.title}
+              </h3>
+              <p class="font-body text-body-md text-on-surface-variant leading-relaxed mb-4">
+                {area.description}
+              </p>
+              <ul class="space-y-2 pt-4 border-t border-outline">
+                {area.details.map(detail => (
+                  <li class="flex items-start gap-2 text-on-surface-variant text-sm">
+                    <span class="text-secondary mt-1 flex-shrink-0">◆</span>
+                    <span>{detail}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+
+        <div class="text-center mt-12">
+          <a 
+            href="#contacto" 
+            class="inline-flex items-center justify-center bg-secondary hover:bg-secondary/90 text-white font-body font-semibold px-8 py-3 rounded-md transition-all duration-200"
+          >
+            Agenda tu consulta
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About / Credentials Section -->
+    <section id="about" class="bg-primary py-16 md:py-20 lg:py-24">
+      <div class="max-w-container mx-auto px-4 md:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <!-- Left: Credentials -->
+          <div class="animate-on-scroll">
+            <p class="font-body text-label-lg text-secondary uppercase tracking-widest mb-4">
+              Credibilidad
+            </p>
+            <h2 class="font-headline text-headline-lg md:text-display-lg-mobile text-white mb-6">
+              Compromiso con la<br />
+              <span class="text-secondary">justicia laboral</span>
+            </h2>
+            <p class="font-body text-body-lg text-white/70 mb-8 leading-relaxed">
+              Con más de 15 años de experiencia en derecho laboral chileno, mi práctica se centra en proteger los derechos de trabajadores y empresas en disputas complejas ante todas las instancias judiciales.
+            </p>
+            
+            <ul class="space-y-4 mb-8">
+              {credentials.map(cred => (
+                <li class="flex items-center font-body text-body-md text-white/80">
+                  <span class="w-1.5 h-1.5 bg-secondary rounded-full mr-3 flex-shrink-0"></span>
+                  {cred}
+                </li>
+              ))}
+            </ul>
+
+            <a 
+              href="#testimonios" 
+              class="link-animate inline-flex items-center font-body text-body-md font-semibold text-secondary hover:text-white transition-colors duration-200"
+            >
+              Ver testimonios de clientes
+              <svg class="w-5 h-5 ml-2 transition-transform duration-200 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+
+          <!-- Right: Stats / Decorative -->
+          <div class="relative animate-on-scroll">
+            <div class="bg-surface p-8 md:p-12 rounded-lg border border-white/10">
+              <div class="grid grid-cols-2 gap-8">
+                <div class="text-center">
+                  <p class="font-headline text-display-lg-mobile text-secondary mb-2">15+</p>
+                  <p class="font-body text-body-md text-primary/70">Años de experiencia</p>
+                </div>
+                <div class="text-center">
+                  <p class="font-headline text-display-lg-mobile text-secondary mb-2">500+</p>
+                  <p class="font-body text-body-md text-primary/70">Casos resueltos</p>
+                </div>
+                <div class="text-center">
+                  <p class="font-headline text-display-lg-mobile text-secondary mb-2">98%</p>
+                  <p class="font-body text-body-md text-primary/70">Tasa de éxito</p>
+                </div>
+                <div class="text-center">
+                  <p class="font-headline text-display-lg-mobile text-secondary mb-2">Santiago</p>
+                  <p class="font-body text-body-md text-primary/70">Sede principal</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Decorative corner -->
+            <div class="absolute -bottom-3 -right-3 w-24 h-24 border border-secondary/30 rounded-lg"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonios" class="bg-surface py-16 md:py-20 lg:py-24">
+      <div class="max-w-container mx-auto px-4 md:px-6 lg:px-8">
+        <div class="text-center mb-12 md:mb-16">
+          <p class="font-body text-label-lg text-secondary uppercase tracking-widest mb-3">
+            Testimonios
+          </p>
+          <h2 class="font-headline text-headline-lg md:text-display-lg-mobile text-primary">
+            Lo que dicen mis <span class="text-secondary">Clientes</span>
+          </h2>
+          <p class="font-body text-body-md text-on-surface-variant max-w-xl mx-auto mt-4">
+            La satisfacción de mis clientes es mi mayor recompensa. Estos testimonios reflejan mi compromiso con la defensa de sus derechos.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {testimonials.map((testimonial, index) => (
+            <div class="bg-primary border border-white/10 p-8 rounded-lg relative scroll-animate" style={`animation-delay: ${index * 100}ms`}>
+              <svg class="absolute top-6 left-6 w-8 h-8 text-secondary opacity-20" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+              </svg>
+              <div class="pt-12">
+                <p class="text-white/80 leading-relaxed mb-6 italic">
+                  "{testimonial.quote}"
+                </p>
+                <div class="border-t border-white/10 pt-4">
+                  <p class="text-white font-medium">{testimonial.client}</p>
+                  <p class="text-secondary text-sm">{testimonial.caseType}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="text-center mt-12">
+          <a 
+            href="#casos" 
+            class="link-animate inline-flex items-center font-body text-body-md font-semibold text-secondary hover:text-primary transition-colors duration-200"
+          >
+            Ver casos ganados
+            <svg class="w-5 h-5 ml-2 transition-transform duration-200 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio / Casos Ganados Section -->
+    <section id="casos" class="bg-primary py-16 md:py-20 lg:py-24">
+      <div class="max-w-container mx-auto px-4 md:px-6 lg:px-8">
+        <div class="text-center mb-12 md:mb-16">
+          <p class="font-body text-label-lg text-secondary uppercase tracking-widest mb-3">
+            Experiencia
+          </p>
+          <h2 class="font-headline text-headline-lg md:text-display-lg-mobile text-white">
+            Casos <span class="text-secondary">Ganados</span>
+          </h2>
+          <p class="font-body text-body-md text-white/70 max-w-xl mx-auto mt-4">
+            Ejemplos de mi trayectoria en defensa de los derechos laborales. Cada caso representa el compromiso con la justicia laboral.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {cases.map((caso, index) => (
+            <div class="group bg-surface-container-lowest border border-outline p-8 hover:border-secondary rounded-lg transition-colors relative overflow-hidden scroll-animate" style={`animation-delay: ${index * 100}ms`}>
+              <!-- Gold accent strip on left -->
+              <div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary transform scale-y-0 group-hover:scale-y-100 transition-transform origin-bottom"></div>
+              
+              <div class="flex items-center gap-3 mb-4">
+                <span class="text-secondary text-sm font-medium">{caso.area}</span>
+                <span class="text-primary/40 text-sm">•</span>
+                <span class="text-primary/60 text-sm">{caso.year}</span>
+              </div>
+              <h3 class="font-headline text-xl text-primary mb-4">{caso.title}</h3>
+              <p class="text-primary/60 text-sm mb-6 leading-relaxed">{caso.description}</p>
+              <div class="pt-6 border-t border-outline/30">
+                <p class="text-secondary text-sm font-medium mb-1">Resultado:</p>
+                <p class="text-primary/70 text-sm">{caso.outcome}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="text-center mt-12">
+          <a 
+            href="#contacto" 
+            class="inline-flex items-center justify-center bg-secondary hover:bg-secondary/90 text-white px-8 py-3 font-body font-medium transition-colors rounded-md"
+          >
+            Agenda tu consulta
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact CTA Section -->
+    <section id="contacto" class="bg-surface py-16 md:py-20 lg:py-24">
+      <div class="max-w-container mx-auto px-4 md:px-6 lg:px-8">
+        <div class="bg-primary rounded-lg p-8 md:p-12 lg:p-16 relative overflow-hidden">
+          <!-- Background accent -->
+          <div class="absolute top-0 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl"></div>
+          
+          <div class="relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-8 items-center">
+            <div class="animate-on-scroll">
+              <p class="font-body text-label-lg text-secondary uppercase tracking-widest mb-4">
+                Contacto
+              </p>
+              <h2 class="font-headline text-headline-lg md:text-display-lg-mobile text-white mb-4">
+                ¿Necesita asesoría<br />
+                <span class="text-secondary">laboral?</span>
+              </h2>
+              <p class="font-body text-body-lg text-white/70 mb-8 leading-relaxed">
+                No espere que un problema laboral se agrave. Una consulta temprana puede marcar la diferencia en el resultado de su caso.
+              </p>
+              
+              <div class="flex flex-col sm:flex-row gap-4">
+                <a 
+                  href="tel:+56987654321" 
+                  class="btn-animate inline-flex items-center justify-center bg-secondary hover:bg-secondary/90 text-white font-body font-semibold px-8 py-3.5 rounded-md transition-all duration-200"
+                >
+                  <svg class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  +56 9 8765 4321
+                </a>
+                <a 
+                  href="mailto:contacto@estudio.cl" 
+                  class="btn-animate inline-flex items-center justify-center border border-white/30 text-white hover:bg-white/10 font-body px-8 py-3.5 rounded-md transition-all duration-200"
+                >
+                  <svg class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  contacto@estudio.cl
+                </a>
+              </div>
+            </div>
+
+            <!-- Contact Info Cards -->
+            <div class="space-y-4 animate-on-scroll">
+              <div class="bg-surface border border-white/10 p-6 rounded-lg transition-all duration-200 hover:border-white/20">
+                <p class="font-body text-label-lg text-secondary mb-2">Horario</p>
+                <p class="font-body text-body-lg text-primary">
+                  Lunes a viernes: 9:00 - 19:00
+                </p>
+                <p class="font-body text-body-md text-primary/60">
+                  Previa cita
+                </p>
+              </div>
+              <div class="bg-surface border border-white/10 p-6 rounded-lg transition-all duration-200 hover:border-white/20">
+                <p class="font-body text-label-lg text-secondary mb-2">Ubicación</p>
+                <p class="font-body text-body-lg text-primary">
+                  Santiago centro, Chile
+                </p>
+                <p class="font-body text-body-md text-primary/60">
+                  Atención presencial y virtual
+                </p>
+              </div>
+              <div class="bg-surface border border-white/10 p-6 rounded-lg transition-all duration-200 hover:border-white/20">
+                <p class="font-body text-label-lg text-secondary mb-2">Formas de Pago</p>
+                <p class="font-body text-body-lg text-primary">
+                  Efectivo, transferencia y tarjetas
+                </p>
+                <p class="font-body text-body-md text-primary/60">
+                  Facilidades de pago
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer slot="footer" />
+</BaseLayout>

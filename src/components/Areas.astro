@@ -1,0 +1,64 @@
+---
+const areas = [
+  {
+    title: "Despido Injustificado",
+    description: "Defensa de trabajadores ante despidos sin causa justa, reclamo de indemnizaciones.",
+    number: "01"
+  },
+  {
+    title: "Acoso Laboral",
+    description: "Representación en casos de hostigamiento, discriminación y ambiente laboral hostil.",
+    number: "02"
+  },
+  {
+    title: "Negociación Colectiva",
+    description: "Asesoría en negociación con sindicatos y empresas.",
+    number: "03"
+  },
+  {
+    title: "Contratos de Trabajo",
+    description: "Redacción, revisión y negociación de contratos laborales.",
+    number: "04"
+  },
+  {
+    title: "Derechos Laborales",
+    description: "Protección de derechos fundamentales laboral, horas extra, descansos.",
+    number: "05"
+  },
+  {
+    title: "Representación Tribunal",
+    description: "Representación ante Juzgados de Letras del Trabajo y Cortes.",
+    number: "06"
+  }
+];
+---
+<section class="bg-surface py-16 lg:py-24">
+  <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="font-headline text-3xl md:text-4xl text-on-background mb-4">
+        Áreas de <span class="text-secondary">Práctica</span>
+      </h2>
+      <p class="text-on-surface-variant max-w-2xl mx-auto">
+        Cobertura integral en todas las materias del derecho laboral chileno.
+      </p>
+    </div>
+
+    <!-- Cards with staggered fade-in animation -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
+      {areas.map(area => (
+        <div class="group card-animate bg-surface-container-lowest border border-outline rounded-lg p-6 hover:border-secondary transition-all duration-300 hover:scale-[1.02] hover:shadow-card-hover relative overflow-hidden">
+          <!-- Gold accent strip on left per DESIGN.md "Featured" card style -->
+          <div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom"></div>
+          
+          <span class="text-secondary font-label-sm mb-3 block">{area.number}</span>
+          <h3 class="font-headline text-xl text-on-background mb-3">
+            {area.title}
+          </h3>
+          <p class="text-on-surface-variant text-sm leading-relaxed">
+            {area.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

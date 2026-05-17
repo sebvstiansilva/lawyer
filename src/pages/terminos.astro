@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const pageTitle = "Términos y Condiciones - Dr. [Nombre]";
+const pageDescription = "Términos y condiciones de uso del sitio web del Dr. [Nombre], abogado laboral chileno.";
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <Header slot="header" />
+
+  <main>
+    <section class="bg-surface py-20">
+      <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="font-headline text-4xl text-on-background mb-8">
+          Términos y <span class="text-secondary">Condiciones</span>
+        </h1>
+
+        <div class="space-y-8 text-on-surface-variant leading-relaxed">
+          <div>
+            <h2 class="font-headline text-2xl text-on-background mb-4">Acceptación de Términos</h2>
+            <p>
+              Al acceder y utilizar este sitio web, usted acepta estar sujeto a los presentes
+              términos y condiciones. Si no está de acuerdo con alguno de estos términos,
+              le solicitamos que no utilize este sitio web.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="font-headline text-2xl text-on-background mb-4">Servicios Legales</h2>
+            <p>
+              La información presentada en este sitio web tiene caracter meramente informativo
+              y no constituye asesoramiento legal. El contacto a través de este sitio no genera
+              una relación abogado-cliente. Para obtener asesoramiento legal específico,
+              debe agendar una consulta formal.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="font-headline text-2xl text-on-background mb-4">Propiedad Intelectual</h2>
+            <p>
+              Todo el contenido de este sitio web, incluyendo pero no limitándose a textos,
+              gráficos, logos, imágenes y software, es propiedad del abogado [Nombre Apellido]
+              y está protegido por las leyes de propiedad intelectual de Chile.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="font-headline text-2xl text-on-background mb-4">Limitación de Responsabilidad</h2>
+            <p>
+              El abogado [Nombre Apellido] no garantiza que la información contenida en este
+              sitio web esté actualizada, sea precisa o completa. No se hace responsable
+              por ningún daño derivado del uso de este sitio web o de la información aquí contenida.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="font-headline text-2xl text-on-background mb-4">Enlaces a Terceros</h2>
+            <p>
+              Este sitio web puede contener enlaces a sitios web de terceros. Estos enlaces
+              se proporcionan únicamente para su conveniencia. El abogado [Nombre Apellido]
+              no tiene control sobre el contenido de estos sitios y no es responsable de ellos.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="font-headline text-2xl text-on-background mb-4">Modificaciones</h2>
+            <p>
+              El abogado [Nombre Apellido] se reserva el derecho de modificar estos términos
+              y condiciones en cualquier momento. Los cambios entrarán en vigor inmediatamente
+              después de su publicación en este sitio web.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="font-headline text-2xl text-on-background mb-4">Legislación Aplicable</h2>
+            <p>
+              Estos términos y condiciones se rigen por las leyes de la República de Chile.
+              Cualquier controversia derivada de estos términos será sometida a los
+              tribunales competentes de Santiago, Chile.
+            </p>
+          </div>
+
+          <div class="text-sm mt-12 text-on-surface-variant">
+            <p>Última actualización: 2025-01-16</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer slot="footer" />
+</BaseLayout>

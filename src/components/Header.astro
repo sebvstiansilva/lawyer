@@ -1,0 +1,170 @@
+---
+const phone = "+56 9 8765 4321";
+const navLinks = [
+  { href: "#areas", label: "Áreas" },
+  { href: "#about", label: "Sobre Mí" },
+  { href: "#testimonios", label: "Testimonios" },
+  { href: "#casos", label: "Casos" },
+  { href: "#contacto", label: "Contacto" },
+];
+---
+
+<header id="site-header" class="sticky top-0 z-50 bg-primary border-b border-primary/20 transition-shadow duration-300">
+  <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16 md:h-20">
+      <!-- Logo / Brand -->
+      <a href="/" class="font-headline text-xl md:text-2xl text-white tracking-tight hover:text-secondary transition-colors duration-200">
+        Patricio Rodriguez
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-8">
+        {navLinks.map(link => (
+          <a 
+            href={link.href} 
+            class="nav-link font-sans text-sm text-white/90 hover:text-white hover:text-white transition-colors duration-200 relative group"
+          >
+            {link.label}
+            <span class="nav-underline absolute -bottom-1 left-0 w-0 h-px bg-secondary transition-all duration-300 ease-out group-hover:w-full"></span>
+          </a>
+        ))}
+      </nav>
+
+      <!-- Desktop: Phone + CTA -->
+      <div class="hidden md:flex items-center gap-6">
+        <a 
+          href={`tel:${phone.replace(/\s/g, '')}`} 
+          class="font-sans text-sm text-white/90 hover:text-secondary transition-colors duration-200"
+        >
+          {phone}
+        </a>
+        <a 
+          href="#contacto" 
+          class="btn-animate font-sans text-sm font-semibold bg-secondary hover:bg-secondary/90 text-white px-5 py-2.5 rounded-md transition-all duration-200 shadow-sm active:scale-[0.98]"
+        >
+          Consulta
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button 
+        id="mobile-menu-btn" 
+        class="md:hidden flex items-center justify-center w-11 h-11 text-white hover:text-secondary focus:outline-none focus:ring-2 focus:ring-secondary/50 rounded-md transition-colors duration-200"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+      >
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Dropdown -->
+  <div id="mobile-menu" class="hidden md:hidden bg-primary border-t border-primary/20">
+    <nav class="max-w-container mx-auto px-4 sm:px-6 py-4 space-y-1">
+      {navLinks.map(link => (
+        <a 
+          href={link.href} 
+          class="block font-sans text-base text-white/90 hover:text-white hover:bg-primary/50 py-3 px-2 rounded-md transition-colors duration-200"
+        >
+          {link.label}
+        </a>
+      ))}
+      <div class="border-t border-white/10 my-3"></div>
+      <a 
+        href={`tel:${phone.replace(/\s/g, '')}`} 
+        class="block font-sans text-sm text-secondary font-medium py-3 px-2 rounded-md hover:bg-primary/50 transition-colors duration-200"
+      >
+        {phone}
+      </a>
+<a 
+          href="#contacto" 
+          class="block font-sans text-sm font-semibold bg-secondary hover:bg-secondary/90 text-white py-3 px-2 rounded-md text-center transition-colors duration-200"
+        >
+          Solicitar Consulta
+        </a>
+    </nav>
+  </div>
+</header>
+
+<!-- Inline styles for animations -->
+<style>
+  .nav-link {
+    position: relative;
+  }
+  
+  .nav-underline {
+    transform-origin: left;
+  }
+  
+  .btn-animate {
+    transition: all 200ms cubic-bezier(0, 0, 0.2, 1);
+  }
+  
+  .btn-animate:hover {
+    transform: translateY(-1px);
+  }
+  
+  .btn-animate:active {
+    transform: scale(0.98);
+  }
+</style>
+
+<script>
+  // Header scroll shadow effect
+  const header = document.getElementById('site-header');
+  
+  const handleScroll = () => {
+    if (window.scrollY > 10) {
+      header?.classList.add('shadow-ambient');
+    } else {
+      header?.classList.remove('shadow-ambient');
+    }
+  };
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll(); // Check initial state
+
+  // Mobile menu toggle
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileMenuIcon = menuBtn?.querySelector('svg');
+
+  menuBtn?.addEventListener('click', (e) => {
+    const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+    
+    if (isExpanded) {
+      // Close menu
+      mobileMenu?.classList.add('hidden');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      menuBtn.innerHTML = `
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      `;
+    } else {
+      // Open menu
+      mobileMenu?.classList.remove('hidden');
+      menuBtn.setAttribute('aria-expanded', 'true');
+      menuBtn.innerHTML = `
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      `;
+    }
+  });
+
+  // Close menu on link click (for single-page feel)
+  mobileMenu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+      menuBtn?.setAttribute('aria-expanded', 'false');
+      menuBtn.innerHTML = `
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      `;
+    });
+  });
+</script>

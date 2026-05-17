@@ -1,0 +1,76 @@
+---
+const cases = [
+  {
+    title: "Demanda por Despido Injustificado",
+    area: "Derecho del Trabajo",
+    description: "Trabajador despedida sin causa justificada después de 10 años de servicio. La empresa argumentó motivos económicos pero no pudo demostrarlo.",
+    outcome: "Indemnización completa por años de servicio + daños y perjuicios.",
+    year: "2024"
+  },
+  {
+    title: "Acoso Laboral en Empresa Retail",
+    area: "Derecho del Trabajo",
+    description: "Supervisora implementó hostigamiento sistemático contra empleada. Acumulamos evidencia de 6 meses de comportamientos hostiles.",
+    outcome: "Demanda acreditada. Empresa multada e indemnización por daño moral.",
+    year: "2024"
+  },
+  {
+    title: "Negociación Colectiva Franquicia",
+    area: "Negociación Colectiva",
+    description: "Sindicato de trabajadores de franquicia de supermercado negociando mejores condiciones. Logramos aumento salarial del 8% y mejores beneficios.",
+    outcome: "Convenio colectivo firmado con mejoras significativas.",
+    year: "2023"
+  },
+  {
+    title: "Reclamación de Horas Extra",
+    area: "Derecho Laboral",
+    description: "Ejecutivos de empresa tecnológica demandaron reconocimiento de 200+ horas extra no pagadas durante 2 años.",
+    outcome: "Pago de todas las horas extra + intereses legales.",
+    year: "2023"
+  }
+];
+---
+
+<section class="bg-surface py-20">
+  <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h1 class="font-headline text-4xl md:text-5xl text-on-background mb-6">
+        Casos <span class="text-secondary">Ganados</span>
+      </h1>
+      <p class="text-on-surface-variant text-lg max-w-3xl mx-auto">
+        Ejemplos de mi trayectoria en defensa de los derechos laborales.
+        Cada caso representa el compromiso con la justicia laboral.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {cases.map(caso => (
+        <div class="group bg-surface-container-lowest border border-outline p-8 hover:border-secondary rounded-lg transition-colors relative overflow-hidden">
+          <!-- Gold accent strip on left -->
+          <div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary transform scale-y-0 group-hover:scale-y-100 transition-transform origin-bottom"></div>
+          
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-secondary text-sm font-medium">{caso.area}</span>
+            <span class="text-on-surface-variant text-sm">•</span>
+            <span class="text-on-surface-variant text-sm">{caso.year}</span>
+          </div>
+          <h3 class="font-headline text-xl text-on-background mb-4">{caso.title}</h3>
+          <p class="text-on-surface-variant text-sm mb-6 leading-relaxed">{caso.description}</p>
+          <div class="pt-6 border-t border-outline">
+            <p class="text-secondary text-sm font-medium mb-1">Resultado:</p>
+            <p class="text-on-surface-variant text-sm">{caso.outcome}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-16 text-center">
+      <p class="text-on-surface-variant mb-6">
+        Cada caso es único. Consulte su situación para una evaluación personalizada.
+      </p>
+      <a href="/contacto" class="inline-flex items-center justify-center bg-secondary hover:bg-secondary/90 text-white px-8 py-3 font-body font-medium transition-colors rounded-md">
+        Agenda su consulta
+      </a>
+    </div>
+  </div>
+</section>

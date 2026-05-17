@@ -1,0 +1,107 @@
+---
+const phone = "+56 9 8765 4321";
+const email = "contacto@abogadolaboral.cl";
+const companyName = "Abogado Laboral";
+---
+
+<footer class="bg-surface border-t border-outline">
+  <div class="max-w-container mx-auto px-4 md:px-6 lg:px-8 py-12 md:py-16">
+    <!-- Main Footer Content -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+      
+      <!-- Brand -->
+      <div class="lg:col-span-1">
+        <h3 class="font-headline text-headline-md text-primary mb-4">
+          {companyName}
+        </h3>
+        <p class="font-body text-body-md text-on-surface-variant leading-relaxed">
+         bufete jurídico especializado en derecho laboral chileno. Protegemos sus derechos con experiencia y dedicación.
+        </p>
+      </div>
+
+      <!-- Contact Information -->
+      <div>
+        <h4 class="font-headline text-headline-md text-primary mb-4">
+         Contacto
+        </h4>
+        <div class="space-y-3">
+          <a 
+            href={`tel:${phone.replace(/\s/g, '')}`} 
+            class="font-body text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200 block"
+          >
+            {phone}
+          </a>
+          <a 
+            href={`mailto:${email}`} 
+            class="font-body text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200 block"
+          >
+            {email}
+          </a>
+          <p class="font-body text-body-md text-on-surface-variant">
+            Santiago, Chile
+          </p>
+        </div>
+      </div>
+
+      <!-- Navigation Links -->
+      <div>
+        <h4 class="font-headline text-headline-md text-primary mb-4">
+          Navegación
+        </h4>
+        <nav class="space-y-3">
+          <a 
+            href="#areas" 
+            class="font-body text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200 block"
+          >
+            Áreas de práctica
+          </a>
+          <a 
+            href="#casos" 
+            class="font-body text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200 block"
+          >
+            Casos ganados
+          </a>
+          <a 
+            href="#contacto" 
+            class="font-body text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200 block"
+          >
+            Contacto
+          </a>
+        </nav>
+      </div>
+
+      <!-- Legal Links -->
+      <div>
+        <h4 class="font-headline text-headline-md text-primary mb-4">
+          Legal
+        </h4>
+        <nav class="space-y-3">
+          <a 
+            href="/privacidad" 
+            class="font-body text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200 block"
+          >
+            Privacidad
+          </a>
+          <a 
+            href="/terminos" 
+            class="font-body text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200 block"
+          >
+            Términos
+          </a>
+        </nav>
+      </div>
+
+    </div>
+
+    <!-- Copyright -->
+    <div class="border-t border-outline mt-12 pt-8">
+      <p class="font-body text-body-md text-on-surface-variant text-center">
+        © {new Date().getFullYear()} {companyName}. Todos los derechos reservados.
+      </p>
+      <p class="font-body text-body-sm text-on-surface-variant text-center mt-2">
+        Creado por <a href="mailto:nicolais.vera@glaciarone.cl" rel="noopener" class="text-secondary hover:underline">GlaciarOne</a>
+      </p>
+    </div>
+
+  </div>
+</footer>

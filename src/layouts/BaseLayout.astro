@@ -1,0 +1,251 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  canonicalURL?: string;
+}
+
+const {
+  title,
+  description = "Lex Chilean Juris - Abogado Laboral Chileno. Expertise y confianza en derecho del trabajo.",
+  canonicalURL = Astro.url
+} = Astro.props;
+
+const ogImage = "/og-image.png";
+---
+
+<!DOCTYPE html>
+<html lang="es-CL">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#051125" />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={ogImage} />
+
+    <!-- Fonts from DESIGN.md - EB Garamond for headlines, Inter for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-background text-on-background font-body antialiased">
+    <slot name="header" />
+    <slot />
+    <slot name="footer" />
+
+    <!-- Animation Scripts - runs immediately, no DOMContentLoaded needed -->
+    <script is:inline>
+      // Intersection Observer for scroll animations
+      document.addEventListener('DOMContentLoaded', function() {
+        // Reduced motion check
+        var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        
+        // Observer for scroll-triggered animations
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animated');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        
+        document.querySelectorAll('.scroll-animate, .scroll-stagger').forEach(function(el) {
+          observer.observe(el);
+        });
+
+        // Hero animations - run immediately on page load
+        if (!prefersReducedMotion) {
+          var heroElements = document.querySelectorAll('.hero-animate');
+          heroElements.forEach(function(el, i) {
+            el.style.animationDelay = (i * 100) + 'ms';
+            el.classList.add('animated');
+          });
+        } else {
+          // Show all immediately if reduced motion
+          document.querySelectorAll('.hero-animate').forEach(function(el) {
+            el.style.opacity = '1';
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  /* Animation timing tokens from DESIGN.md */
+  :root {
+    --duration-micro: 150ms;
+    --duration-fast: 200ms;
+    --duration-normal: 300ms;
+    --duration-page: 400ms;
+    --ease-out: cubic-bezier(0, 0, 0.2, 1);
+    --ease-in: cubic-bezier(0.4, 0, 1, 1);
+    --stagger-step: 50ms;
+  }
+
+  /* Keyframes */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* Scroll animation base states */
+  .scroll-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.4s var(--ease-out), transform 0.4s var(--ease-out);
+  }
+
+  .scroll-animate.animated {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Hero animation states */
+  .hero-animate {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  .hero-animate.animated {
+    animation: fadeInUp 0.4s var(--ease-out) forwards;
+  }
+
+  /* Stagger children animation */
+  .scroll-stagger > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s var(--ease-out), transform 0.4s var(--ease-out);
+  }
+
+  .scroll-stagger.animated > *:nth-child(1) { transition-delay: 0ms; }
+  .scroll-stagger.animated > *:nth-child(2) { transition-delay: 50ms; }
+  .scroll-stagger.animated > *:nth-child(3) { transition-delay: 100ms; }
+  .scroll-stagger.animated > *:nth-child(4) { transition-delay: 150ms; }
+  .scroll-stagger.animated > *:nth-child(5) { transition-delay: 200ms; }
+  .scroll-stagger.animated > *:nth-child(6) { transition-delay: 250ms; }
+  .scroll-stagger.animated > *:nth-child(7) { transition-delay: 300ms; }
+  .scroll-stagger.animated > *:nth-child(8) { transition-delay: 350ms; }
+
+  .scroll-stagger.animated > * {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Button hover animations */
+  .btn-hover {
+    transition: all 0.2s var(--ease-out);
+  }
+
+  .btn-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -5px rgba(5, 17, 37, 0.15);
+  }
+
+  .btn-hover:active {
+    transform: scale(0.98);
+  }
+
+  /* Card hover animations */
+  .card-hover {
+    transition: all 0.3s var(--ease-out);
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 25px 50px -12px rgba(5, 17, 37, 0.25);
+  }
+
+  /* Nav link underline animation */
+  .nav-link-animated {
+    position: relative;
+  }
+
+  .nav-link-animated::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: currentColor;
+    transition: width 0.3s var(--ease-out);
+  }
+
+  .nav-link-animated:hover::after {
+    width: 100%;
+  }
+
+  /* Gold strip card animation */
+  .card-gold-strip {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-gold-strip::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: #775a19;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.3s var(--ease-out);
+  }
+
+  .card-gold-strip:hover::before {
+    transform: scaleY(1);
+  }
+
+  /* Reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+
+    .scroll-animate,
+    .scroll-stagger > *,
+    .hero-animate {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+</style>

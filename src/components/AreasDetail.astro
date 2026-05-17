@@ -1,0 +1,128 @@
+---
+const areas = [
+  {
+    title: "Despido Injustificado",
+    icon: "gavel",
+    description: "Defensa de trabajadores ante despidos sin causa justa. Reclamación de indemnizaciones por años de servicio,虫害 notices, y daños y perjuicios ante los Juzgados de Letras del Trabajo.",
+    points: [
+      "Demanda por despido injustificado",
+      "Indemnización por años de servicio",
+      "Reclamación de preaviso",
+      "Daños y perjuicios"
+    ]
+  },
+  {
+    title: "Acoso Laboral",
+    icon: "shield",
+    description: "Representación en casos de hostigamiento, discriminación y ambiente laboral hostil. Protección de derechos fundamentales y dignidad del trabajador.",
+    points: [
+      "Denuncia por acoso laboral",
+      "Acción de protección",
+      "Gestión ante Inspector del Trabajo",
+      "Mediación laboral"
+    ]
+  },
+  {
+    title: "Negociación Colectiva",
+    icon: "users",
+    description: "Asesoría en negociación con sindicatos y empresas. Redacción de instrumentos colectivos y defensa de derechos sindicales.",
+    points: [
+      "Elaboración de convenios colectivos",
+      "Negociación con sindicatos",
+      "Defensa de derechos laborales",
+      "Interpretación de cláusulas"
+    ]
+  },
+  {
+    title: "Contratos de Trabajo",
+    icon: "file-text",
+    description: "Redacción, revisión y negociación de contratos laborales. Asesoría en modalidades contractuales y modificación de condiciones de trabajo.",
+    points: [
+      "Contratos a plazo fijo",
+      "Contratos indefinidos",
+      "Modificación de cláusulas",
+      "Finiquito y término de relación laboral"
+    ]
+  },
+  {
+    title: "Derechos Laborales",
+    icon: "scale",
+    description: "Protección de derechos fundamentales laborales. Reclamación de horas extra, descansos, permisos y demás derechos contemplados en el Código del Trabajo.",
+    points: [
+      "Reclamación de horas extra",
+      "Descansos y permisos",
+      "Derecho a negociación",
+      "Protección frente a vulneraciones"
+    ]
+  },
+  {
+    title: "Representación ante Tribunales",
+    icon: "building",
+    description: "Representación legal ante Juzgados de Letras del Trabajo, Cortes de Apelaciones y Corte Suprema. Litigación estratégica en todas las instancias.",
+    points: [
+      "Juicios laborales",
+      "Recursos de nulidad",
+      "Apelaciones",
+      "Casación laboral"
+    ]
+  }
+];
+
+const icons: Record<string, string> = {
+  gavel: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />',
+  shield: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />',
+  users: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7l4 4m0 0l-4 4m4-4H7" />',
+  'file-text': '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />',
+  scale: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />',
+  building: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />'
+};
+---
+
+<section class="bg-surface py-20">
+  <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h1 class="font-headline text-4xl md:text-5xl text-on-background mb-6">
+        Áreas de <span class="text-secondary">Práctica</span>
+      </h1>
+      <p class="text-on-surface-variant text-lg max-w-3xl mx-auto">
+        Cobertura integral en todas las materias del derecho laboral chileno, con años de experiencia en defensa de los derechos de trabajadores y empresas.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {areas.map(area => (
+        <div class="group bg-surface-container-lowest border border-outline p-8 hover:border-secondary rounded-lg transition-colors relative overflow-hidden">
+          <!-- Gold accent strip on left per DESIGN.md "Featured" card style -->
+          <div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary transform scale-y-0 group-hover:scale-y-100 transition-transform origin-bottom"></div>
+          
+          <div class="w-12 h-12 bg-surface-container flex items-center justify-center mb-6 rounded-md border border-outline">
+            <svg class="w-6 h-6 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor" set:html={icons[area.icon]} />
+          </div>
+          <h3 class="font-headline text-xl text-on-background mb-4">
+            {area.title}
+          </h3>
+          <p class="text-on-surface-variant text-sm mb-6 leading-relaxed">
+            {area.description}
+          </p>
+          <ul class="space-y-2">
+            {area.points.map(point => (
+              <li class="flex items-start gap-2 text-on-surface-variant text-sm">
+                <span class="text-secondary mt-1">◆</span>
+                <span>{point}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-16 text-center">
+      <p class="text-on-surface-variant mb-6">
+        ¿No encuentras tu caso? Contáctame para discutir tu situación.
+      </p>
+      <a href="/contacto" class="inline-flex items-center justify-center bg-secondary hover:bg-secondary/90 text-white px-8 py-3 font-body font-medium transition-colors rounded-md">
+        Agenda tu consulta
+      </a>
+    </div>
+  </div>
+</section>
